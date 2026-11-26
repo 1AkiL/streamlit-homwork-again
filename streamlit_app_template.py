@@ -390,7 +390,7 @@ class InferenceEndpointLLM(LLM):
 #   LangChain LLM wrapper around the Default-engine endpoint, used by the summary memory.
     hf_token: str = Field(default="", repr=False)   # repr=False keeps the token out of logs
     endpoint_url: str = ""
-    max_new_tokens: int = 256
+    max_new_tokens: int = 5000
 
     @property
     def _llm_type(self) -> str:
@@ -425,7 +425,7 @@ SUMMARY_PROMPT_ES = PromptTemplate(
 # Recent turns are kept word-for-word up to this many (estimated) tokens;
 # older turns are folded into the running summary by the model.
 # Qwen3-8B has a 32K-token context, so ~3-4 recent exchanges fit before a summary is made.
-MEMORY_TOKEN_LIMIT = 7000
+MEMORY_TOKEN_LIMIT = 2500
 
 
 def get_memory() -> ConversationSummaryBufferMemory:
