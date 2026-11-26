@@ -784,7 +784,7 @@ def save_feedback(message: str, response: str, rating: str, comment: str,
 
 def page_chat():
     """Main chat interface page."""
-    st.title("🤖 AI Chat with Explainability")
+    st.title("🤖 Chat de IA sobre redes")
     st.markdown("Haz preguntas y recibe respuestas..")
     
     # Sidebar settings
@@ -914,7 +914,7 @@ def page_chat():
             st.rerun()
     
     with col2:
-        st.subheader("Explainability")
+        st.subheader("Explicación")
         
         if st.session_state.current_explanation:
             exp = st.session_state.current_explanation
